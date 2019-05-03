@@ -1,0 +1,99 @@
+//Variables
+
+var notVariable;
+notVariable = 8;
+
+var apple = 5;
+
+//Data types
+//PRIMITVE
+var num = 5;
+var isConnected = true; //true or false
+var myName = "Agne";
+//COMPLEX
+//OBJECT
+var car = {
+  brand: "Tesla",
+  maxSpeed: 250,
+  isBroken:false
+};
+
+var myData = {
+  name: "Tomek", //name is a property of an object myData
+  surname: "Barczyk",
+  height: 191,
+  hisCar: car
+};
+//access object property by . "dot" 
+console.log("MY DATA TEST:", myData.surname);
+console.log ("My Data test:", myData.height);
+
+
+//ARRAYs
+var carsRegNumbers = ["ABC123", "KR123", "WY333"];
+
+var car1 = {
+  brand:"Volvo",
+  maxSpeed: 243
+};
+
+var car2 = {
+  brand:"Volkswagen",
+  maxSpeed: 300
+};
+
+var car3 = {
+  brand:"BMW",
+  maxSpeed: 150
+};
+
+var myCars = [car1, car2, car3];
+
+var mySameCars = new Array(car1,car2,car3);
+
+//console.log("my log 1:",typeof(myCars)); 
+//console.log("my log 2:",typeof(car2));
+//console.log("my log 3:",typeof(apple));
+//console.log("my log 4:",typeof(num));
+
+var myUndef = undefined; //something was not defined
+var myNull = null; //something do not exists, empty object
+var emptyString = ""; //this is normal string! but empty and this is not an issue
+
+//console.log("my log:",typeof(myUndef)); 
+//console.log("my log:",typeof(myNull)); 
+//console.log("my log:",typeof(emptyString));  
+
+// == and === operators
+var apple1=23;
+var apple2="23";
+
+var comparisonResult = apple1 == apple2;
+var secondResult = apple1 === apple2;
+//console.log (comparisonResult);
+//console.log (secondResult);
+
+//Array + simple "FOR"
+//every element in array has index, starting from 0 (zero)
+// we are using square brackets!
+
+var myIndex = 2;
+var arrayOfNumbers = ["apple","car","scissors", "mouse"];
+
+var firstElement = arrayOfNumbers[3];
+//console.log("MY ELEMENT: ", firstElement);
+var abc=3;
+var lastElementIndex=arrayOfNumbers[abc];
+
+var arrayLenght = arrayOfNumbers.length;
+//console.log(arrayOfNumbers[0]);
+console.log(arrayLenght);
+console.log(arrayOfNumbers.length);
+var newBran=["qwe","rty","uio","asd","fgh","hjk","zxc"];
+var lenghtOfAnArray=newBran.length;
+var lastIndex= lenghtOfAnArray - 1;
+//you are taking elements from array with square BRACKETS arrayName[index]
+console.log("aaaaaaaa",newBran[lastIndex]);
+console.log("aaaaaaaa",newBran[1]);
+console.log("aaaaaaaa",newBran[4]);
+console.log("aaaaaaaa",newBran[lastIndex]);
