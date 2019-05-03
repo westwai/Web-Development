@@ -1,0 +1,48 @@
+//DEFINITION of example function with one argument which return string:
+function sortFruits(fruit) {
+    if (fruit === "banana")
+        return "it's banana";
+    else
+        return "other fruit";
+}
+
+//example CALLS of function defined above:
+//value retured from function is assigned to variable sortResult1 and sortResult2
+var sortResult1 = sortFruits("banana");
+var sortResult2 = sortFruits("apple");
+
+console.log(sortResult1);
+console.log(sortResult2);
+
+//DEFINITION of example function without arguments which do not return anything:
+function LogSthToTheConsole(){
+    var myExampleVar = "test variable";
+    console.log(myExampleVar);
+    console.log("empty log to show function which do not return anything");
+}
+
+//another example DEFINITION of function with one argument which return number
+function countArray(arrayInput){
+    var length = arrayInput.length;
+    return length;
+}
+
+//example usage (CALL) of function countArray defined above:
+//value returned from function is assgined to variable result
+var result = countArray(["a","b","c"]);
+console.log(result);
+
+//CALL of function defined above:
+LogSthToTheConsole();
+
+//for loop:
+for(var a = 0; a<10; a = a+1){
+    var messageToShow = "my loop: " + a;
+    console.log(messageToShow);
+}
+
+
+//another for loop which counts from 100 to 1 (index > 0) not >=:
+for(var index = 100; index > 0; index = index -1 ){
+    console.log("my for loop current index is:", index);
+}
