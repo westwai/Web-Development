@@ -1,0 +1,55 @@
+Loop:
+for(var index = 10; index <= 30; index = index +1 ){
+    console.log("counting:", index);
+}
+
+
+Functions lenght:
+function stringLength(checking){
+	if (stringLength(checking).lenght > 10)
+		return "Lenght is OK"
+		else
+			return "string is too long!"
+}
+
+Function with 2 arguments that returns an array
+function myFullName(firstName,lastName){
+ 	var firstName="Agne";
+ 	var lastName="Baranauskaite";
+ 	var myFullName2=[firstName,lastName];
+ }
+ 
+ Function with 2 aruguments and === operator:
+ 
+ function counting(numbers,letters){
+	if (numbers===1, letters==="a")
+		return "it's correct";
+	else 
+		return "it's not correct";
+}
+var counting1=counting(1,"a");
+console.log(counting1);
+var counting2=counting(1,"b");
+console.log(counting2);
+var counting3=counting(3,"c");
+console.log(counting3);
+var counting4=counting(4,"d");
+console.log(counting4);
+var counting5=counting(5,"a");
+console.log(counting5);
+var counting6=counting(1,"c");
+console.log(counting6);
+
+Lenght function:
+function stringLength(checking){
+	if (stringLength(checking).lenght > 10)
+		return "Lenght is OK"
+		else
+			return "string is too long!"
+      
+This one is not correct at all, but will be corrected. It's 3 different arrays used as an argument in a function:
+var first=[1,2,3];
+ var second=[4,5,6];
+ var third=[7,8,9];
+ function connectingArrays(first,second,third){
+ }
