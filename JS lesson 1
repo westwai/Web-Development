@@ -1,0 +1,27 @@
+var comparison = 1 == "1";
+var comparison2 = 2 === "2";
+console.log (comparison);
+console.log (comparison2);
+
+
+var myName=["Agne","Baranauskaite"];
+console.log (myName);
+
+var myName2={
+	firstName:"Agne",
+	lastName:"Baranauskaite"
+}
+var myFullName=new Array (myName2.firstName, myName2.lastName);
+console.log (myFullName);
+
+console.log (myName2["firstName"]);
+var myFirstName="Agne";
+var myLastName="Baranauskaite";
+var myFullName2=[myFirstName, myLastName];
+console.log (myFullName2);
+ 
+ function myFullName=(firstName,lastName){
+ 	var firstName="Agne";
+ 	var lastName="Baranauskaite";
+ 	var myFullName2=[firstName,lastName];
+ }
