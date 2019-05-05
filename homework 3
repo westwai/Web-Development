@@ -1,0 +1,40 @@
+function funk(arg){
+  if (arg==="CPU"|| arg==="Display")
+    return "Computer part";
+    else 
+    return "Unknown part";
+}
+var result=funk("CPU", "aaa", "bbb");
+console.log (result);
+result=funk("engine","bb","www");
+console.log (result);
+
+
+function funk(product){
+  switch(product){
+    case "car": return "price 10000";
+    case "bike": return "price 500";
+    case "computer": return "price 1000";
+    case "toy": return "price 10";
+    case "break": return "price 1";
+    case "jeans": return "price 50";
+    default: return "price is 0";
+  }
+}
+var result=funk("bike");
+console.log (result);
+
+
+var productNames=["car","ball","mouse","TV","cup","table","plate","stand","chair","couch","curtains","bottle","headphones","charger"];
+for(var index = 0; index <= 13; index = index+1){
+  console.log (productNames[index]);
+}
+
+
+var product={
+  name:"asus",
+  price:1000,
+  color:"white"
+};
+console.log(product.name);
+console.log(product["color"]);
