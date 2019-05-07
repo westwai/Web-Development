@@ -1,0 +1,117 @@
+//variable in switch case from homework
+function funk(product){
+  var myPrice = 0;
+  
+  switch(product){
+    case "car": 
+      myPrice = "price 10000"; 
+      break;
+    case "bike": 
+      myPrice = "price 500"; 
+      break;
+    case "computer": 
+      myPrice = "price 1000" ;
+      break;
+    case "toy": 
+      myPrice = "price 10"; 
+      break;
+    case "break": 
+      myPrice = "price 1"; 
+      break;
+    case "jeans": 
+      myPrice = "price 50"; 
+      break;
+    default: 
+      myPrice = "price is 0";
+  }
+  
+  return myPrice;
+}
+var result=funk("bike");
+
+//exercise:
+//create functin which has 1 argument: price
+//depending on the price create switch case which will give us opinion abut the price
+// if price is 0 then it says "price is zero"
+// if price is 10 then it says "10 price"
+// otherwise it says "other price"
+function productOpinion(price){
+  var opinionOfThePrice="";
+  switch (price){
+    case 0: 
+      opinionOfThePrice = "price is zero"; 
+      break;
+    case 10:
+      opinionOfThePrice="10 price";
+      break;
+    default:
+      opinionOfThePrice="other price";
+  }
+  return opinionOfThePrice;
+}
+
+
+var e1 = {
+  name: "Mike",
+  role: "boss"
+}
+
+var e2 = {
+  name: "George",
+  role: "assistant"
+}
+
+//i would like to have a function which has 1 argument: employee and it returns employee title, e.g.:
+//if employee is a boss, then return: "OO, you are a boss"
+// if employee is an assitatne, then return "only assist",
+//otherwise, return "Are you working there?"
+function getTitle(employee){
+  var title="";
+  
+  //if start
+  if (employee.role==="boss"){
+    var prefix = "OO, ";
+    title= prefix + "you are a boss";
+  }
+  else if (employee.role==="assistant")
+    title= "only assist";  
+  else if (employee.role==="aaa")
+    title= "www";  
+  else if (employee.role==="fff")
+    title= "rrrr";  
+  else 
+    title = "Are you working there?";
+  //if end
+  
+  
+  return title;
+}
+function getTitle2(employee){
+  var title="";
+  switch (employee.role){
+    case "boss":
+      var prefix = "OO, ";
+      title= prefix + "you are a boss";
+      break;
+    case "assistant":
+      title="only assist";
+      break;
+    default: 
+      title="do you even work here?";
+  }
+  return title;
+}
+function getProductName(productCode){
+  var productName="";
+  if (productCode===1){
+    productName="orange";}
+  else if (productCode===2){
+     productName="apple";}
+  else if (productCode===3){
+    productName="lemon";}
+  else{
+    productName="undefined";}
+  
+  var messageToReturn = "ok my product is" + productName;
+  return messageToReturn;
+}
