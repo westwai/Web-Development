@@ -2,12 +2,11 @@ function funk(arg){
   if (arg==="CPU"|| arg==="Display")
     return "Computer part";
     else 
-    return "Unknown part";
+      return "Unknown part";
 }
-var result=funk("CPU", "aaa", "bbb");
-console.log (result);
-result=funk("engine","bb","www");
-console.log (result);
+function funk["CPU","aaa","bbb"];
+console.log (funk);
+
 
 
 function funk(product){
