@@ -1,0 +1,54 @@
+function getProductName2(product){
+var productName="";
+switch (product.name){
+	case "ldcMonitor":
+		productName="LCD Monitor";
+		break;
+	case "ledDisplay":
+		productName="Led Display";
+		break;
+	case  "wirelessKeyboard":
+		productName="Wireless Keyboard";
+		break;
+  case "hardDisc":
+    productName="Hard Disc";
+    break;
+  case "ramMemory":
+  	productName="Ram Memory 1200mhz";
+    break;
+  default:
+  	productName="Unknown Product";
+  }  
+  return productName;
+}
+
+var resultGetProductName=getProductName("hardDisc");
+console.log (resultGetProductName);
+
+
+
+function getproductName(product){
+var productName="";
+if (product==="LCD Monitor"){
+productName="LCD Monitor";
+}
+else if (product==="led display"){
+productName="led display";}
+
+else if (product==="Wireless Keyboard"){
+productName="Wireless Keyboard";}
+
+else if (product==="Hard Disc"){
+productName="Hard Disc";}
+
+else if (product==="Ram Memory 1200mhz"){
+productName="Ram Memory 1200mhz";}
+else{
+productName="Unknown product";}
+
+ var messageToReturn = "Your product has a name:" + productName;
+  return messageToReturn;
+}
+var productNameResult=getproductName("led display");
+console.log (productNameResult);
+Your product has a name:led display
