@@ -1,3 +1,19 @@
+var lcdMonitor={
+name: "LCD monitor",
+}
+var ledDisplay={
+name: "led display",
+}
+var wirelessKeyboard= {
+name: "Wireless Keyboard",
+}
+var hardDisc= {
+name: "Hard Disc",
+}
+var ramMemory= {
+name: "Ram Memory 1200mhz",
+}
+
 function getProductName2(product){
 var productName="";
 switch (product.name){
@@ -29,19 +45,19 @@ console.log (resultGetProductName);
 
 function getproductName(product){
 var productName="";
-if (product==="LCD Monitor"){
+if (product===125){
 productName="LCD Monitor";
 }
-else if (product==="led display"){
+else if (product===111){
 productName="led display";}
 
-else if (product==="Wireless Keyboard"){
+else if (product===133){
 productName="Wireless Keyboard";}
 
-else if (product==="Hard Disc"){
+else if (product===144){
 productName="Hard Disc";}
 
-else if (product==="Ram Memory 1200mhz"){
+else if (product===155){
 productName="Ram Memory 1200mhz";}
 else{
 productName="Unknown product";}
