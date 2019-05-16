@@ -1,0 +1,141 @@
+var dayCode=1;
+
+if(dayCode===1)
+{
+  alert("Monday");
+}
+else if(dayCode===2)
+{
+  alert("Tuesday");
+}
+else if(dayCode===3)
+{
+  alert("Wednesday");
+}
+else if(dayCode===4)
+{
+  alert("Thursday");
+}
+else if(dayCode===5)
+{
+  alert("Friday");
+}
+else if(dayCode===6)
+{
+  alert("Saturday");
+}
+else if(dayCode===7)
+{
+  alert("Sunday");
+}
+    
+var dayCode=5;
+
+switch(dayCode){
+  case 1:
+    alert("Monday");
+    break;
+  case 2:
+    alert("Tuesday");
+    break;
+  case 3:
+    alert("Wednesday");
+    break;
+  case 4:
+    alert("Thursday");
+    break;
+  case 5:
+    alert("Friday");
+    break;
+  case 6:
+    alert("Saturday");
+    break;
+  case 7:
+    alert("Sunday");   
+}
+
+function sayHello(hour){
+  var greeting="";
+  if (hour>0, hour<=12)
+  {
+    greeting="Good morning";
+  }
+  else if (hour>12, hour<=18)
+  {
+    greeting="Good afternoon";
+  }
+  else if (hour>18, hour<=22)
+  {
+    greeting="Good evening";
+  }
+  else if (hour>22, hour<=24)
+  {
+    greeting="Good night";
+  }
+    else
+    {
+      greeting="Wrong hour";
+    }
+    return greeting;
+  }
+var returnedGreeting=sayHello(-10);
+console.log (returnedGreeting);
+Good morning
+
+var returnedGreeting=sayHello(5);
+console.log (returnedGreeting);
+Good morning
+
+var returnedGreeting=sayHello(14);
+console.log (returnedGreeting);
+Good afternoon
+
+var returnedGreeting=sayHello(21);
+console.log (returnedGreeting);
+Good evening
+
+var returnedGreeting=sayHello(23);
+console.log (returnedGreeting);
+Good night
+
+var returnedGreeting=sayHello(44);
+console.log (returnedGreeting);
+Wrong hour
+
+
+function sumingWithIf(arg1,arg2){
+  var summedAmount="";
+  if (arg1+arg2===0){
+    summedAmount="Zero";
+  }
+  else if (arg1+arg2===10){
+    summedAmount="Ten";
+  }
+  else if (arg1+arg2===15){
+    summedAmount="Fifteen";
+  }
+  else{
+      summedAmount="Different number";
+    }
+    return summedAmount;
+  }
+
+
+
+function sumingWithSwitch(arg1,arg2){
+  var summedAmount=arg1+arg2;
+  switch(summedAmount){
+    case 0:
+     // console.log("Zero");
+      break;
+    case 10:
+     // console.log("Ten")
+      break;
+    case 15:
+      //console.log("Fifteen");
+      break;
+    default:
+      console.log("Different number");
+  }
+}
+
