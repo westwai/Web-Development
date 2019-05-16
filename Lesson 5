@@ -1,0 +1,169 @@
+
+function getproductName(product){
+  var productName="";
+  var productId = product.id;
+  
+  if (productId===125){
+    productName="LCD Monitor";
+  }
+  else if (productId===111){
+    productName="led display";
+  }
+  else if (productId===133){
+    productName="Wireless Keyboard";
+  }
+  else if (productId===144){
+    productName="Hard Disc";
+  }  
+  else if (productId===155){
+    productName="Ram Memory 1200mhz";
+  }
+  else{
+    productName="Unknown product";
+  }
+  
+  var messageToReturn = "Your product has a name:" + productName;
+  return messageToReturn;
+}
+
+  
+var argObject={
+  name:"myexaname", 
+  id: 1555
+};
+  
+var result=getproductName(argObject);
+console.log(result);
+  
+  
+var ledDisplay={
+	name: "led display",
+};
+var wirelessKeyboard= {
+	name: "Wireless Keyboard",
+};
+var hardDisc={
+	name: "Hard Disc",
+};
+var ramMemory={
+	name: "ramMemory",
+};
+  
+var exampleProduct= {
+ 	price:1,
+  weight:133,
+  name: "mouse"
+};
+
+function getProductName2(product){
+var productName="";
+  
+switch (product.name){
+	case "ldcMonitor":
+		productName="LCD Monitor";
+		break;
+	case "ledDisplay":
+		productName="Led Display";
+		break;
+	case  "wirelessKeyboard":
+		productName="Wireless Keyboard";
+		break;
+  case "hardDisc":
+    productName="Hard Disc";
+    break;
+  case "ramMemory":
+  	productName="Ram Memory 1200mhz";
+    break;
+  default:
+  	productName="Unknown Product";
+  }  
+  return productName;
+}
+
+var desktop={
+	name:"asus",
+  size:15
+  };
+var resultGetProductName=getProductName2(ramMemory);
+console.log(resultGetProductName);
+  //////////////////////////////////////
+  
+ var person = {
+   age: 45,
+   name: "John",
+   height: 177
+ };
+  
+function getSurname(personObject){
+var surname="";
+  switch(personObject.name){
+    case "Tomek": 
+      surname = "Barczyk"; 
+      break;
+    case "Bob":
+      surname="Wolf";
+      break;
+    case "Agne":
+      surname="Baranauskaite";
+      break;
+  }
+  return surname;
+}
+var Tomek={
+age:27,
+name:"Tomek"
+};
+var surnameReturn=getSurname(Tomek);
+console.log(surnameReturn);
+  
+  
+  //if ID 1 -> "orange"
+  //if ID 2 -> "apple"
+  //if ID 3 -> "peach"
+  
+	var id = 2;
+  
+  switch(id){
+    case 1:
+      alert("orange");
+      break;
+    case 2:
+      console.log("apple");
+      break;
+    case 3:
+      alert("peach");
+      break;
+    default:
+      console.log("Anything");
+  }
+  
+  if(id===1){
+    alert("orange");
+  }
+  else if (id===2){
+    console.log("apple");
+  }      
+  else if(id===3)
+  {
+		alert("peach");
+  } 
+  else {
+		console.log("Anything");
+  }
+   
+  
+  
+var name={
+	a:1,
+	b:2,
+  c:{    
+    d:1,
+    e:"aaa"
+    f: {
+    	w:1,
+    	r:2
+  	}
+  }
+}
+
+name.c.d
