@@ -1,0 +1,88 @@
+  //https://www.w3schools.com/js/js_loop_for.asp 
+  
+  //for(var index = 5; index = 10;index=index + 1){
+  //  console.log (index);
+  //}
+  
+  //index = 6;
+  
+  var a = 6;
+  a = 9;
+ // if(returningTrue())
+   // console.log(a);
+  //numbers, strings, arrays, objects, booleans (true, false)
+  
+  
+  function shouldIAlert(input){
+  if (input.length>10) 
+    return true; 
+  else 
+    return false;  
+  }
+  
+  var ex= "my ex string bla bla bla";
+  var qwe="short";
+  if(shouldIAlert(qwe)){
+  	console.log(qwe);
+  }
+  
+  
+  for(var i = 6; i<10; i++){
+    console.log("for" + i);
+  }
+  
+    
+  var i = 6;
+  
+  while(i<10){
+    i++;
+    console.log("while" + i);       
+  }  
+  
+  //i = i + 1;
+  //i++; <-- order is taken into account
+  //++i; <-- order is taken into account
+  var a =6;
+  
+  console.log(a++);
+  console.log(a);
+  
+  
+  var a = 5;
+  
+  do {
+    console.log("dowhile");
+  } while(a < 2)
+  
+  while(a < 2){
+   console.log("while"); 
+  }
+  
+  function checkIfDivBy3(number){
+    if (number%3 === 0)  {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+  
+  var numbers = [1,2,3,4,5,6,7,89,99,113];
+  
+  
+    for (var index=0; index < numbers.length; index++){
+      var aa=numbers[index];
+      if (checkIfDivBy3(aa)){
+        console.log(aa);
+      }
+      
+    }
+  
+  //https://www.w3schools.com/js/js_loop_for.asp
+  //https://www.w3schools.com/js/js_loop_while.asp
+  var i = 8
+  while (i < 10) {
+    text += "The number is " + i;
+    i++;
+  }
