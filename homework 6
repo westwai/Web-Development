@@ -1,0 +1,60 @@
+<html>
+<head>
+<script src="untitled copy.js"></script>
+</head>
+<body>
+<body>
+  <h1 id="firstElement">H1 element</h1>
+  <h2 id="secondElement">H2 element</h2>
+  <hr>
+  <h3 id="thirdElement">H3 element</h3>
+  <h4 id="fourthElement">H4 element</h4>
+  <p id="fifthElement">Paragraph <span style="color:red">element</span></p>
+  <a id="sixthElement" href="https://www.google.com">Anchor element</a>
+  <h5 id="seventhElement">H5 element</h5>
+  <img id="eigthElement" src="https://images.freeimages.com/images/large-previews/e4a/surf-3-1378236.jpg" style="width:500px;height:300px;"/>
+
+  <li> This </li>
+  <li> is </li>
+  <li> a </li>
+  <li> list </li>
+
+  <div id="ninthElement">
+  <p id="p1">First paragraph</p>
+  <p id="p2">Second paragraph</p>
+  </div>
+
+    
+  </div>
+</body>
+</body>
+</html>
+
+
+
+
+var first=document.getElementById("firstElement");
+var second=document.getElementById("secondElement");
+var third=document.getElementById("thirdElement");
+var fourth=document.getElementById("fourthElement");
+var fifth=document.getElementById("fifthElement");
+var sixth=document.getElementById("sixthElement");
+var seventh=document.getElementById("seventhElement");
+var eigth=document.getElementById("eigthElement");
+var ninth=document.getElementById("ninthElement");
+
+function addParagraph(text, elementName){
+  var para = document.createElement("p");
+  var node = document.createTextNode("Third Paragraoh");
+  para.appendChild(node);
+  var element = document.getElementById("ninthElement");
+  element.appendChild(para);
+  }
+
+
+function writeMessage(message,elementName){
+  var myNode = document.getElementById("mynode");
+  var childElement = document.createElement(elementName);
+  childElement.innerHTML = message;
+  myNode.appendChild(childElement);
+  }
