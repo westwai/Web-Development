@@ -1,0 +1,47 @@
+HTML code:
+
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+<body>
+
+<input id="input" style="width: 250px"></input> <button id="button" style="width: 100px">Submit</button>
+
+<img id="image" src="">
+
+<script src="ajax.js"></script>
+</body>
+</html>
+
+JavaScript code:
+
+var usersIdUrl = "https://jsonplaceholder.typicode.com/users";
+var photoUrl="https://jsonplaceholder.typicode.com/photos"
+var button = document.getElementById("button");
+
+button.addEventListener("click", getUsersID);
+
+function getUsersID(){
+  var email=$("#input").val();
+  $.ajax({
+    url:usersIdUrl + "?email=" + email,
+    type:"GET"
+  }).done(function(response) {
+    var id=response[0].id;
+    getPhotoID(id);
+  })
+}
+
+function getPhotoID(id){
+  $.ajax({
+      url:photoUrl + "?id=" + id,
+      type:"GET"
+    }).done(function(photoResult){
+      var photoUrl=photoResult[0].url;
+      var imageElement=document.getElementById("image");
+      imageElement.setAttribute("src",photoUrl);    
+    })
+}
+
