@@ -1,0 +1,151 @@
+HTML:
+
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="projectstyle.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-reboot.css">
+</head>
+<body>
+<div id="user-section">
+	<input class="form-control" id="username" type="text" name="userName" title="Username" placeholder="Put name here" />
+	
+	<button class="btn btn-primary my-button" id="login" label="login">Log In</button>
+	<button class="btn btn-primary my-button" id="logout" label="logout">Log Out</button>
+	<button class="btn btn-primary my-button" id="order" label="order">Order</button>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+		Ordered products 
+		<div id="order-list" title="Order List"></div>   
+    </div>
+    <div class="col-sm">
+        Available products
+        <div id="product-list" title="Products list"></div>
+    </div>
+    </div>
+</div>
+
+<script src="webprojectJS.js"></script>
+</body>
+</html>
+
+CSS:
+
+#body {
+background-color: #F9D8D4;
+width: 98%;
+}
+
+#product-list.hidden{
+background-color: green;
+display:inline-block;
+width: 49%;
+margin: 8px;
+font-size: 16px;
+}
+
+#order-list{
+visibility: hidden;
+background-color: red;
+display:inline-block;
+width: 49%;
+}
+
+.my-button{
+	width: 100px;
+}
+#username{
+	width: 200px;
+	display: inline;
+}
+
+JavaScript:
+
+$("#login").click(logIn);
+$("#order").click(showOrders);
+$("#logout").click(logOut);
+
+
+function logIn(){
+	var username=$("#username").val();
+	if(username.length<=3){
+		return;
+	}
+	$("#username").attr('disabled','disabled');
+	showProducts();
+	 showOrders();
+}
+
+function toShowOrders(){
+	var username=$("#username").val();
+	if(username.length<=3){
+		return;
+	}
+	$("#username").attr('disabled','disabled');
+	 showOrders();
+}
+
+
+function logOut(){
+	$("#username").removeAttr('disabled');
+	hideProducts();
+	hideUserOrders();
+}
+
+function showProducts(){
+	$.ajax({
+		url:"http://tappi.azurewebsites.net/api/values",
+		type:"GET"
+	}).done(function(products){
+		renderProducts(products);
+	})
+}
+
+function renderProduct(product){
+	$("#product-list").append( "<p>"+"<input type='checkbox'/>"+product.name+" "+product.description+"</p>" );
+
+}
+
+function renderProducts(products){
+	for (var i = 0; i < products.length; i++) {
+		var singleProduct=products[i];
+		renderProduct(singleProduct);
+	}
+}
+
+function showOrders(){
+	$.ajax({
+		url:"http://tappi.azurewebsites.net/api/values",
+		type:"GET"
+	}).done(function(orders){
+		renderProductsForOrders(orders);
+	})
+}
+
+function renderProductForOrders(order){
+	$("#order-list").append( "<p>"+order.name+" "+order.price+"</p>" );
+}
+
+function renderProductsForOrders(orders){
+	for (var i = 0; i < orders.length; i++) {
+		var singleOrder = orders[i];
+		renderProductForOrders(singleOrder);
+	}
+}
+
+
+function showUserOrders(){
+	alert("orders");
+}
+
+function hideProducts(){
+	alert("hide products");
+}
+
+function hideUserOrders(){
+	alert("hide orders");
+}
