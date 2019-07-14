@@ -35,6 +35,7 @@ HTML:
 
 CSS:
 
+
 #body {
 background-color: #F9D8D4;
 width: 98%;
@@ -49,8 +50,6 @@ font-size: 16px;
 }
 
 #order-list{
-visibility: hidden;
-background-color: red;
 display:inline-block;
 width: 49%;
 }
@@ -63,10 +62,11 @@ width: 49%;
 	display: inline;
 }
 
+
 JavaScript:
 
 $("#login").click(logIn);
-$("#order").click(showOrders);
+$("#order").click(toShowOrders);
 $("#logout").click(logOut);
 
 
@@ -149,3 +149,4 @@ function hideProducts(){
 function hideUserOrders(){
 	alert("hide orders");
 }
+
