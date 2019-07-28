@@ -250,3 +250,17 @@ function sumCheckedProducts(){
 	}
 	console.log (selectedProducts);
 }
+
+Corrected sumCheckedProducts fuction:
+
+function sumCheckedProducts(){
+	var selectedCheckboxes=$(".product-checkbox:checked");
+	var selectedProducts=[];
+	var total=0;
+	for (var i = 0; i < selectedCheckboxes.length; i++) {
+		var checkbox=selectedCheckboxes[i];
+		var currentAttribute=$(checkbox).attr('product-price');
+		total += parseFloat(currentAttribute[i].value);
+	}
+	console.log (currentAttribute);
+}
