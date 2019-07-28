@@ -1,0 +1,252 @@
+HTML:
+
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="projectstyle.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-reboot.css">
+</head>
+<body>
+<div id="user-section">
+	<input class="form-control" id="username" type="text" name="userName" title="Username" placeholder="Put name here" />
+	
+	<button class="btn btn-primary my-button" id="login" label="login">Log In</button>
+	<button class="btn btn-primary my-button" id="logout" label="logout">Log Out</button>
+	<button class="btn btn-primary my-button" id="order" label="order">Order</button>
+	<button class="btn btn-primary my-button" id="test" label="test">Test</button>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+		Ordered products 
+		<div>			
+			<input type="checkbox" product-name="Couch" class="product-checkbox" product-price="100"/>
+			<p>Couch</p>
+		</div>	
+		<div>
+			<input type="checkbox" product-name="Fridge" class="product-checkbox" product-price="50"/>
+			<p>Fridge</p>
+		</div>	
+		<div>
+			<input type="checkbox" product-name="Table" class="product-checkbox" product-price="30"/>
+			<p>Table</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Chair" class="product-checkbox" product-price="45"/>
+			<p>Chair</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Laptop" class="product-checkbox" product-price="70"/>
+			<p>Laptop</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Door" class="product-checkbox" product-price="65"/>
+			<p>Door</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Painting" class="product-checkbox" product-price="80"/>
+			<p>Painting</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Blanket" class="product-checkbox" product-price="95"/>
+			<p>Blanket</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Stand" class="product-checkbox" product-price="105"/>
+			<p>Stand</p>
+		</div>
+		<div>
+			<input type="checkbox" product-name="Mirror" class="product-checkbox" product-price="110"/>
+			<p>Mirror</p>
+		</div>
+		</div>   
+    </div>
+    <div class="col-sm">
+        Available products
+        <div id="product-list" title="Products list"></div>
+    </div>
+    </div>
+</div>
+
+<script src="webprojectJS.js"></script>
+</body>
+</html>
+
+CSS:
+
+#body {
+background-color: #F9D8D4;
+width: 98%;
+}
+
+#product-list{
+width: 49%;
+margin: 8px;
+font-size: 16px;
+}
+
+#order-list{
+width: 49%;
+}
+
+.my-button{
+	width: 100px;
+}
+#username{
+	width: 200px;
+	display: inline;
+}
+
+
+JavaScript:
+
+$("#login").click(logIn);
+$("#order").click(orderSelected);
+$("#logout").click(logOut);
+$("#test").click(showSelectedProducts);
+
+var availableProductsUrl="http://tappi.azurewebsites.net/api/products";
+var orderedProductsUrl="http://tappi.azurewebsites.net/api/orders/";
+
+function makeTest(){
+	var selectedCheckboxes=$(".myCheckbox:checked");
+	var ids=[];
+	for (var i = 0; i < selectedCheckboxes.length; i++) {
+		var currentCheckbox=selectedCheckboxes[i];
+		var currentAttr=$(currentCheckbox).attr('data-id');
+		ids.push(currentAttr);
+	}
+	console.log (ids);
+}
+
+function logIn(){
+	var username=$("#username").val();
+	if(username.length<=3){
+		return;
+	}
+	$("#username").attr('disabled','disabled');
+	showProducts();
+	showOrders();
+}
+
+function getSelectedProducts(){
+	var checkboxes=$(".availableProduct:checked");
+	console.log (checkboxes);
+	console.log (checkboxes[0]);
+	return [123, 456, 789];
+}
+
+function orderSelected(){
+	var username=$("#username").val();
+	var productList=getSelectedProducts();
+	console.log(productList);
+	$.ajax({
+		url:orderedProductsUrl + username,
+		type:"POST",
+		data: JSON.stringify(productList),
+		contentType: "application/json"
+	}).done(function(){
+		alert("Order successful");
+	})
+}
+
+function logOut(){
+	$("#username").removeAttr('disabled');
+	hideProducts();
+	hideUserOrders();
+}
+
+function showProducts(){
+	// $.ajax({
+	// 	url:availableProductsUrl,
+	// 	type:"GET"
+	// }).done(function(products){
+	// 	renderProducts(products);
+	// })
+	var products=[
+	{
+		id:1, 
+		name:"TV",
+		description: "this is a tv"
+	},
+	{
+		id:2, 
+		name:"Fridge",
+		description: "this is a fridge"
+	},
+	{
+		id:3, 
+		name:"TV2",
+		description: "this is a tv2"
+	},
+	{
+		id:4, 
+		name:"TV3",
+		description: "this is a tv3"
+	},
+	{
+		id:5, 
+		name:"TV5",
+		description: "this is a tv5"
+	}];
+	renderProducts(products);
+}
+
+function renderProduct(product){
+	$("#product-list").append( "<p>"+"<input class='availableProduct data-name='"+product.name+"' type='checkbox'/>"+product.name+" "+product.description+"</p>" );
+
+}
+
+function renderProducts(products){
+	for (var i = 0; i < products.length; i++) {
+		var singleProduct=products[i];
+		renderProduct(singleProduct);
+	}
+}
+
+function showOrders(){
+	var username=$("#username").val();
+	$.ajax({
+		url:orderedProductsUrl + username,
+		type:"GET"
+	}).done(function(orders){
+		renderProductsForOrders(orders);
+	})
+}
+
+function renderProductForOrders(order){
+	$("#order-list").append( "<p>"+order.name+" "+order.price+"</p>" );
+}
+
+function renderProductsForOrders(orders){
+	for (var i = 0; i < orders.length; i++) {
+		var singleOrder = orders[i];
+		renderProductForOrders(singleOrder);
+	}
+}
+
+function showSelectedProducts(){
+	var selectedCheckboxes=$(".product-checkbox:checked");
+	var selectedProducts=[];
+	for (var i = 0; i < selectedCheckboxes.length; i++) {
+		var checkbox=selectedCheckboxes[i];
+		var currentAttribute=$(checkbox).attr('product-name');
+		selectedProducts.push(currentAttribute);
+	}
+	console.log (selectedProducts);
+}
+
+function sumCheckedProducts(){
+	var selectedCheckboxes=$(".product-checkbox:checked");
+	var selectedProducts=[];
+	var total=0;
+	for (var i = 0; i < selectedCheckboxes.length; i++) {
+		var checkbox=selectedCheckboxes[i];
+		var currentAttribute=$(checkbox).attr('product-price');
+		selectedProducts.push(currentAttribute);
+		total += parseFloat(selectedCheckboxes[i].value);
+	}
+	console.log (selectedProducts);
+}
