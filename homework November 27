@@ -1,0 +1,57 @@
+1) find element which has length bigger than 3
+2) filter elements which has lenght equal to 3
+
+var array1 = ["aaa","bbb","cccd"];
+var filteredArray = array1.filter(function(element) {
+  return element.length > 3;
+});
+
+console.log(filteredArray);
+
+
+
+var filteredArray2 = array1.filter(function(element) {
+  return element.length == 3;
+});
+
+console.log(filteredArray2);
+
+
+1) Filter products which has price bigger than 10. Console log filtered products.
+2) Find product which has id equal to 3. Console log name and price of this product.
+
+var products = [
+    {
+        "name":"telephone",
+        "price":10,
+        "id":1
+    },
+    {
+        "name":"aaa",
+        "price":6555,
+        "id":2
+    },
+    {
+        "name":"bbb",
+        "price":1,
+        "id":3
+    },
+    {
+        "name":"cccc",
+        "price":111,
+        "id":4
+    }
+]
+
+var filteredPrice = products.filter(function(productPrice){
+    return productPrice.price > 10;
+});
+
+console.log(filteredPrice);
+
+
+var filteredId = products.filter(function(productId){
+    return productId.id == 3;
+});
+
+console.log(filteredId);
